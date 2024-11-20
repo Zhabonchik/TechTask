@@ -5,14 +5,9 @@ import com.ifortex.bookservice.model.Book;
 import com.ifortex.bookservice.service.BookService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-//import jakarta.persistence.Query;
 import jakarta.persistence.criteria.*;
-import org.hibernate.Session;
 import org.springframework.stereotype.Service;
-import org.hibernate.query.*;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Service

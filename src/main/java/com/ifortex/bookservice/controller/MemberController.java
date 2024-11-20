@@ -1,10 +1,8 @@
 package com.ifortex.bookservice.controller;
 
 import com.ifortex.bookservice.model.Member;
-import com.ifortex.bookservice.service.MemberService;
 import com.ifortex.bookservice.service.impl.MemberServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

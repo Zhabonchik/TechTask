@@ -2,7 +2,6 @@ package com.ifortex.bookservice.controller;
 
 import com.ifortex.bookservice.dto.SearchCriteria;
 import com.ifortex.bookservice.model.Book;
-import com.ifortex.bookservice.service.BookService;
 import com.ifortex.bookservice.service.impl.BookServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.lang.Nullable;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

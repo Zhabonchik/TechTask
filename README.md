@@ -1,4 +1,4 @@
-Tech Task Requirements
+git Tech Task Requirements
 
 Installed tools requirements:
 Java 17,

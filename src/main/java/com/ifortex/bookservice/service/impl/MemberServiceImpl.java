@@ -1,10 +1,10 @@
 package com.ifortex.bookservice.service.impl;
 
 import com.ifortex.bookservice.model.Member;
+import com.ifortex.bookservice.repository.impl.MemberRepositoryImpl;
 import com.ifortex.bookservice.service.MemberService;
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
-import jakarta.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,17 +12,17 @@ import java.util.List;
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final MemberRepositoryImpl memberRepository;
+
+    @Autowired
+    MemberServiceImpl(MemberRepositoryImpl memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public Member findMember() {
-        String query = "SELECT m FROM Member m " +
-                "JOIN m.borrowedBooks b " +
-                "WHERE array_to_string (b.genres, ',') like '%Romance%' " +
-                "ORDER BY m.membershipDate ASC LIMIT 1";
         try {
-            return (Member) entityManager.createQuery(query).getSingleResult();
+            return memberRepository.findMember();
         } catch (NoResultException e) {
             return null;
         }
@@ -30,11 +30,8 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Member> findMembers() {
-        String query = "SELECT m FROM Member m " +
-                "WHERE YEAR(m.membershipDate) = 2023 " +
-                "AND not exists elements(m.borrowedBooks)";
         try {
-            return entityManager.createQuery(query).getResultList();
+            return memberRepository.findMembers();
         } catch (NoResultException e) {
             return null;
         }
